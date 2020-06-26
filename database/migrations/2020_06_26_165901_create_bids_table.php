@@ -16,13 +16,13 @@ class CreateBidsTable extends Migration
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('object_id');            
+            $table->string('product_id');            
             $table->string('price'); 
             $table->timestamps(); 
             
             // indexes
             $table->index(['user_id']);
-            $table->index(['object_id']);
+            $table->index(['product_id']);
         });
     }
 
