@@ -28,6 +28,11 @@ Route::post('/product/{slug}', [
     'uses' => 'ProductController@handleBid'
 ]);
 
+Route::get('/success', [
+    'as'   => 'success',
+    'uses' => 'HomeController@success'
+]);
+
 // User
 Route::prefix('/userdashboard')->middleware('usercheck')->group(function() {
     Route::get('/', [

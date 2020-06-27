@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function bids() {
-        return $this->hasMany('App\Models\Bid');
+    public function bid() {
+        return $this->hasOne('App\Models\Bid');
     }
 }

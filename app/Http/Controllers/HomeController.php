@@ -21,8 +21,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
+    public function index() {
         return view('home');
     }
 
@@ -32,5 +31,9 @@ class HomeController extends Controller
 
     public function adminIndex() {
         return view('admin.index');
+    }
+
+    public function success() {
+        return view('success.success');
     }
 }

@@ -14,4 +14,11 @@ class Bid {
         ]);
     }
 
+    public function create($data) {
+        return BidModel::create($data->input());
+    }
+
+    /*public function getAllById($product_id) {
+        return BidModel::where('product_id', $product_id)->orderBy('id', 'desc')->get();
+    }*/
 }
