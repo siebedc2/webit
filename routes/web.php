@@ -39,6 +39,16 @@ Route::prefix('/userdashboard')->middleware('usercheck')->group(function() {
         'as'   => 'userIndex',
         'uses' => 'HomeController@userIndex'
     ]);
+
+    Route::get('/changePassword', [
+        'as'   => 'changePassword',
+        'uses' => 'UserController@changePassword'
+    ]);
+
+    Route::post('/changePassword', [
+        'as'   => 'changePassword',
+        'uses' => 'UserController@handleChangePassword'
+    ]);
 });
 
 // Admin

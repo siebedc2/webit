@@ -18,6 +18,10 @@ class Bid {
         return BidModel::create($data->input());
     }
 
+    public function getHeighest($product_id) {
+        return BidModel::where('product_id', $product_id)->max('price');
+    }
+
     /*public function getAllById($product_id) {
         return BidModel::where('product_id', $product_id)->orderBy('id', 'desc')->get();
     }*/
