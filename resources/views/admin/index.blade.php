@@ -3,11 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        @foreach($products as $product)
         <div class="col-md-4">
-            <a href="{{ asset('/product/' . $product->slug) }}">{{$product->name}}</a>
+            <h1>Admin</h1>
         </div>
-        @endforeach
     </div>
 </div>
 @endsection

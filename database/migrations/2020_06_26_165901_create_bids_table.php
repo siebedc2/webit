@@ -17,7 +17,7 @@ class CreateBidsTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('product_id');            
-            $table->string('price'); 
+            $table->double('price'); 
             $table->timestamps(); 
             
             // indexes

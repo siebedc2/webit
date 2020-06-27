@@ -37218,12 +37218,25 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/Webit/bid.js":
+/*!***********************************!*\
+  !*** ./resources/js/Webit/bid.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./Webit/bid */ "./resources/js/Webit/bid.js");
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 

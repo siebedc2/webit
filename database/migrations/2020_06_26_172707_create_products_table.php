@@ -15,9 +15,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
+            $table->string('name');
+            $table->string('slug')->unique();
             $table->text('description');
             $table->text('pictures')->nullable();
+            $table->double('min-bid')->nullable();
             $table->enum('status', ['online', 'offline'])->default('online');
             $table->timestamps();
         });

@@ -14,4 +14,12 @@ class Product {
         ]);
     }
 
+    public function getAll() {
+        return ProductModel::all();
+    }
+
+    public function getBySlug($slug) {
+        return ProductModel::where('slug', $slug)->first();
+    }
+
 }
