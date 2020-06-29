@@ -5,5 +5,8 @@ return [
     'login'                     => 'Login',
     'register'                  => 'Register',
     'changePassword'            => 'Change Password',
-    'success'                   => 'Bid Confirmation'
+    'success'                   => 'Bid Confirmation',
+    'userIndex'                 => 'Dashboard User',
+    'adminIndex'                => 'Dashboard Admin',
+    'changeProduct'             => 'Create/update product'
 ];

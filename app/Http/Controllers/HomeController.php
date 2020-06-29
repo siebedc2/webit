@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Services\Product as ProductService;
+
 class HomeController extends Controller
 {
     /**
@@ -29,8 +31,9 @@ class HomeController extends Controller
         return view('user.index');
     }
 
-    public function adminIndex() {
-        return view('admin.index');
+    public function adminIndex(ProductService $product) {
+        $data['products'] = $product->getAll();
+        return view('admin.index', $data);
     }
 
     public function success() {

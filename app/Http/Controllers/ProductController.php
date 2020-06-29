@@ -39,7 +39,40 @@ class ProductController extends Controller
                 $user->sendConfirmation(Auth::user()->email);
                 return redirect('success'); 
             }
+        } 
+    }
+
+    public function change(ProductService $product, $slug = null) {
+        if($slug != null) {
+            $data['product'] = $product->getBySlug($slug);
+            return view('admin.change', $data);
         }
+            
+        else {
+            return view('admin.change');
+        }
+    }
+
+    public function handleChange(ProductService $product, $slug = null) {
+        if ($product->validator($this->_request->all())->fails()) {
+            $errors = $product->validator($this->_request->all())->errors();
+            return back()->with('errors', $errors);
+        } 
         
+        else {
+            if($slug == null) {
+                $product->create($this->_request->all());
+            }
+
+            else {
+                $product->update($this->_request->all());
+            }
+        } 
+    }
+
+    public function handleDelete(ProductService $product, $product_id) {
+        if($product->delete($product_id)) {
+            return redirect('/admindashboard')->with('status', 'Product deleted!');
+        }
     }
 }

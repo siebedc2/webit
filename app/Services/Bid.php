@@ -19,7 +19,7 @@ class Bid {
     }
 
     public function getHeighest($product_id) {
-        return BidModel::where('product_id', $product_id)->max('price');
+        return BidModel::where('product_id', $product_id)->orderBy('price', 'desc')->first();
     }
 
     /*public function getAllById($product_id) {

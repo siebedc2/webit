@@ -28,6 +28,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
+    @include('components.menu')
     
     @yield('content')
 

@@ -8,9 +8,10 @@ use Validator;
 class Product {
     public function validator(array $data) {
         return Validator::make($data, [
-            'slug'          => 'required',
+            'name'          => 'required',
+            'slug'          => 'required|unique:products,' . $data['slug'],
             'description'   => 'required',
-            'pictures'      => 'nullable|mimes:mimes:jpeg,png,jpg|max:2000'
+            'pictures'      => 'required|mimes:jpg,jpeg,png'
         ]);
     }
 
@@ -20,6 +21,20 @@ class Product {
 
     public function getBySlug($slug) {
         return ProductModel::where('slug', $slug)->first();
+    }
+
+    public function create($data) {
+        return ProductModel::create($data);
+    }
+
+    public function update($data) {
+        dd('Edit product');
+    }
+
+    public function delete($product_id) {
+        $product = ProductModel::find($product_id);
+        $product->status = 'offline';
+        return $product->save();
     }
 
 }

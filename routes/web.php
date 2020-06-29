@@ -40,6 +40,11 @@ Route::prefix('/userdashboard')->middleware('usercheck')->group(function() {
         'uses' => 'HomeController@userIndex'
     ]);
 
+    Route::get('/bids', [
+        'as'   => 'bids',
+        'uses' => 'ProductController@bids'
+    ]);
+
     Route::get('/changePassword', [
         'as'   => 'changePassword',
         'uses' => 'UserController@changePassword'
@@ -56,6 +61,21 @@ Route::prefix('/admindashboard')->middleware('admincheck')->group(function() {
     Route::get('/', [
         'as'   => 'adminIndex',
         'uses' => 'HomeController@adminIndex'
+    ]);
+
+    Route::get('/products/change/{slug?}', [
+        'as'   => 'changeProduct',
+        'uses' => 'ProductController@change'
+    ]);
+
+    Route::post('/products/change/{slug?}', [
+        'as'   => 'changeProduct',
+        'uses' => 'ProductController@handleChange'
+    ]);
+
+    Route::post('/products/delete/{id}', [
+        'as'   => 'deleteProduct',
+        'uses' => 'ProductController@handleDelete'
     ]);
 });
 
