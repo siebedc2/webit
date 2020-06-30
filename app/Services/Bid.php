@@ -15,7 +15,7 @@ class Bid {
     }
 
     public function getAll() {
-        return BidModel::all();
+        return BidModel::orderBy('created_at', 'desc')->get();
     }
 
     public function getByUserId($user_id) {

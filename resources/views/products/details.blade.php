@@ -12,17 +12,17 @@
         </div>
 
         <div class="col-md-6">
-            <div class="row">
+            <div class="row mt-3 mt-md-0">
                 <div class="col-12">
                     <h2>{{ $product->name }}</h2>
                 </div>
                 <div class="col-12">
                     <p>{{ $product->description }}</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-6">
                     <p>Minimum bid: <strong>&euro;{{ $product->min_bid }}</strong></p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-6">
                     <p>Heighist bid: <strong>&euro;{{ $highest_bid->price ?? '-' }}</strong></p>
                 </div>
             </div>

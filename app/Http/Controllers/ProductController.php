@@ -35,7 +35,7 @@ class ProductController extends Controller
 
     public function personalBids(BidService $bid) {
         $data['bids'] = $bid->getByUserId(Auth::id());
-        return view('user.bids', $data);
+        return view('user.index', $data);
     }
 
     public function allBids(BidService $bid) {

@@ -37,11 +37,6 @@ Route::get('/success', [
 Route::prefix('/userdashboard')->middleware('usercheck')->group(function() {
     Route::get('/', [
         'as'   => 'userIndex',
-        'uses' => 'HomeController@userIndex'
-    ]);
-
-    Route::get('/bids', [
-        'as'   => 'bids',
         'uses' => 'ProductController@personalBids'
     ]);
 
