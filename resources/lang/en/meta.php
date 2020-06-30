@@ -8,5 +8,6 @@ return [
     'success'                   => 'Bid Confirmation',
     'userIndex'                 => 'Dashboard User',
     'adminIndex'                => 'Dashboard Admin',
-    'changeProduct'             => 'Create/update product'
+    'changeProduct'             => 'Create/update product',
+    'bids'                      => 'Bids'
 ];

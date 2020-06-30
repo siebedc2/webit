@@ -42,7 +42,7 @@ Route::prefix('/userdashboard')->middleware('usercheck')->group(function() {
 
     Route::get('/bids', [
         'as'   => 'bids',
-        'uses' => 'ProductController@bids'
+        'uses' => 'ProductController@personalBids'
     ]);
 
     Route::get('/changePassword', [
@@ -61,6 +61,16 @@ Route::prefix('/admindashboard')->middleware('admincheck')->group(function() {
     Route::get('/', [
         'as'   => 'adminIndex',
         'uses' => 'HomeController@adminIndex'
+    ]);
+
+    Route::get('/bids', [
+        'as'   => 'bids',
+        'uses' => 'ProductController@allBids'
+    ]);
+
+    Route::get('/products/details/{slug}', [
+        'as'   => 'detailsProduct',
+        'uses' => 'ProductController@adminDetails'
     ]);
 
     Route::get('/products/change/{slug?}', [

@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pictures">Picture *</label>
-                    <input name="pictures" type="file" class="form-control-file" id="pictures" value="{{ $product->pictures ?? '' }}" required>
+                    <input name="pictures" type="file" class="form-control-file" id="pictures" value="{{ $product->pictures ?? '' }}">
                 </div>
                 <div class="form-group">
                     <label for="min_bid">Min bid</label>

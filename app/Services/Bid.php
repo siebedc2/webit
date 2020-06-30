@@ -14,6 +14,14 @@ class Bid {
         ]);
     }
 
+    public function getAll() {
+        return BidModel::all();
+    }
+
+    public function getByUserId($user_id) {
+        return BidModel::where('user_id', $user_id)->get();
+    }
+
     public function create($data) {
         return BidModel::create($data->input());
     }

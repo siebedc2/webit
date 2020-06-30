@@ -28,6 +28,21 @@ class ProductController extends Controller
         return view('products.details', $data);
     }
 
+    public function adminDetails(ProductService $product, $slug) {
+        $data['product'] = $product->getBySlug($slug);
+        return view('admin.productDetails', $data);
+    }
+
+    public function personalBids(BidService $bid) {
+        $data['bids'] = $bid->getByUserId(Auth::id());
+        return view('user.bids', $data);
+    }
+
+    public function allBids(BidService $bid) {
+        $data['bids'] = $bid->getAll();
+        return view('admin.bids', $data);
+    }
+
     public function handleBid(BidService $bid, UserService $user) {
         if ($bid->validator($this->_request->input())->fails()) {
             $errors = $bid->validator($this->_request->input())->errors();
@@ -61,11 +76,15 @@ class ProductController extends Controller
         
         else {
             if($slug == null) {
-                $product->create($this->_request->all());
+                if($product->create($this->_request->all())) {
+                    return redirect('/admindashboard');
+                }
             }
 
             else {
-                $product->update($this->_request->all());
+                if($product->update($this->_request->all(), $slug)) {
+                    return redirect('/admindashboard');
+                }
             }
         } 
     }

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
 
         $admin = new UserModel();
         $admin->name = "Veilinghuis Admin";
-        $admin->email = "velinghuis@hotmail.be";
+        $admin->email = "veilinghuis@hotmail.be";
         $admin->password = bcrypt('123456789');
         $admin->role = "admin";
         $admin->save();
