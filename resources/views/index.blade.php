@@ -9,7 +9,7 @@
                     <a href="{{ asset('/product/' . $product->slug) }}">
                         <div class="row">
                             <div class="col-12">
-                                <div style="background-image: url(/images/{{ $product->pictures }})" class="product-image w-100"></div>
+                                <div style="background-image: url(/images/uploads/{{ $product->pictures }})" class="product-image w-100"></div>
                             </div>
                         </div>
                         <div class="row mt-2">

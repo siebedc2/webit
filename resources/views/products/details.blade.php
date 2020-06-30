@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row mt-4 d-flex align-items-center">
         <div class="col-md-6">
-            <div style="background-image: url(/images/{{ $product->pictures }})" class="product-image w-100"></div>
+            <div style="background-image: url(/images/uploads/{{ $product->pictures }})" class="product-image w-100"></div>
         </div>
 
         <div class="col-md-6">

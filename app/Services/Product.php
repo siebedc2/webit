@@ -27,7 +27,16 @@ class Product {
         return ProductModel::where('slug', $slug)->first();
     }
 
+    public function saveImage($image) {
+        $ext = $image->extension();
+        $filename =  date('Y-m-d-H-i-s') . '_' . uniqid() . '.' . $ext;
+        $image->move('images/uploads', $filename);
+        return $filename;
+    }
+
     public function create($data) {
+        $filename = $this->saveImage($data['pictures']);
+        $data['pictures'] = $filename;
         return ProductModel::create($data);
     }
 
@@ -38,6 +47,8 @@ class Product {
         $product->description = $data['description'];
 
         if(!empty($data['pictures'])) {
+            $filename = $this->saveImage($data['pictures']);
+            $data['pictures'] = $filename;
             $product->pictures = $data['pictures'];
         }
 
