@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
     {
         $product = new ProductModel();
         $product->name = "Typewriter 1980";
-        $product->slug = "siebe.decelle@hotmail.be";
+        $product->slug = "typewriter";
         $product->description = "Lorem Ipsum is simply dummy text of the printing a...";
         $product->pictures = "product1.jpg";
         $product->min_bid = "25";

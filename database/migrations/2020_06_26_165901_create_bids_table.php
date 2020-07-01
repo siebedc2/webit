@@ -18,6 +18,7 @@ class CreateBidsTable extends Migration
             $table->string('user_id');
             $table->string('product_id');            
             $table->double('price'); 
+            $table->enum('status', ['online', 'offline'])->default('online');
             $table->timestamps(); 
             
             // indexes

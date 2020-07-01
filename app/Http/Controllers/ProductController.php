@@ -29,25 +29,6 @@ class ProductController extends Controller
         return view('products.details', $data);
     }
 
-    public function personalBids(BidService $bid) {
-        $data['bids'] = $bid->getByUserId(Auth::id());
-        return view('user.index', $data);
-    }
-
-    public function handleBid(BidService $bid, UserService $user) {
-        if ($bid->validator($this->_request->input())->fails()) {
-            $errors = $bid->validator($this->_request->input())->errors();
-            return back()->with('errors', $errors);
-        } 
-        
-        else {
-            if($bid->create($this->_request)) {
-                $user->sendConfirmation(Auth::user()->email);
-                return redirect('success'); 
-            }
-        } 
-    }
-
     public function change(ProductService $product, $slug = null) {
         if($slug != null) {
             $data['product'] = $product->getBySlug($slug);
@@ -86,8 +67,6 @@ class ProductController extends Controller
             return response()->json([
                 'message'       => 'success',
             ]);
-            
-            //return redirect('/admindashboard')->with('status', 'Product deleted!');
         }
     }
 }

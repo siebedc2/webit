@@ -19,13 +19,18 @@ Route::get('/', [
 ]);
 
 Route::get('/product/{slug}', [
-    'as'   => 'home',
+    'as'   => 'details',
     'uses' => 'ProductController@details'
 ]);
 
 Route::post('/product/{slug}', [
-    'as'   => 'home',
-    'uses' => 'ProductController@handleBid'
+    'as'   => 'details',
+    'uses' => 'BidController@handleBid'
+]);
+
+Route::post('/bid/cancel/{id}', [
+    'as'   => 'cancelBid',
+    'uses' => 'BidController@cancelBid'
 ]);
 
 Route::get('/success', [
@@ -37,7 +42,7 @@ Route::get('/success', [
 Route::prefix('/userdashboard')->middleware('usercheck')->group(function() {
     Route::get('/', [
         'as'   => 'userIndex',
-        'uses' => 'ProductController@personalBids'
+        'uses' => 'BidController@personalBids'
     ]);
 
     Route::get('/changePassword', [

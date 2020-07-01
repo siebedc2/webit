@@ -9,7 +9,7 @@ class Bid extends Model
     protected $table = 'bids';
 
     protected $fillable = [
-        'id', 'user_id', 'product_id', 'price'
+        'id', 'user_id', 'product_id', 'price', 'status'
     ];
 
     public function user() {

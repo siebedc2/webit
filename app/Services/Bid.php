@@ -15,11 +15,14 @@ class Bid {
     }
 
     public function getAll() {
-        return BidModel::orderBy('created_at', 'desc')->get();
+        return BidModel::where('status', 'online')->orderBy('created_at', 'desc')->get();
     }
 
     public function getByUserId($user_id) {
-        return BidModel::where('user_id', $user_id)->get();
+        return BidModel::where([
+            ['user_id', $user_id],
+            ['status', 'online']
+        ])->orderBy('id', 'desc')->get();
     }
 
     public function create($data) {
@@ -27,10 +30,22 @@ class Bid {
     }
 
     public function getHeighest($product_id) {
-        return BidModel::where('product_id', $product_id)->orderBy('price', 'desc')->first();
+        return BidModel::where([
+            ['product_id', $product_id],
+            ['status', 'online']
+        ])->orderBy('price', 'desc')->first();
     }
 
     public function getByProductId($product_id) {
-        return BidModel::where('product_id', $product_id)->orderBy('id', 'desc')->get();
+        return BidModel::where([
+            ['product_id', $product_id],
+            ['status', 'online']
+        ])->orderBy('id', 'desc')->get();
+    }
+
+    public function cancel($bid_id) {
+        $bid = BidModel::find($bid_id);
+        $bid->status = 'offline';
+        return $bid->save();
     }
 }

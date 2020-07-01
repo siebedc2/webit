@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Description *</label>
-                    <textarea name="description" class="w-100 bg-light form-control" id="description" rows="3" required>{{ $product->description ?? '' }}</textarea>
+                    <textarea name="description" class="w-100 bg-light form-control" id="description" placeholder="description" rows="3" required>{{ $product->description ?? '' }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="pictures">Picture</label>
