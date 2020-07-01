@@ -1,3 +1,3 @@
-require('./Webit/bid');
+require('./Webit/product');
 
 require('./bootstrap');

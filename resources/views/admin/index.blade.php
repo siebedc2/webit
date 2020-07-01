@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('components.delete-product-popup')
 <div class="container">
     <div class="row">
         <div class="col-6">
@@ -39,15 +40,13 @@
             <div class="col-6 border">
                 <p class="py-2 mb-0">{{ $product->description }}</p>
             </div>
-            <div class="col-3 border d-flex justify-content-between py-2">
+            <div class="col-3 border d-md-flex flex-wrap justify-content-md-between align-items-start py-2">
                 <a href="/admindashboard/products/details/{{$product->slug}}" class="btn btn-primary">Details</a>
 
                 <a href="/admindashboard/products/change/{{$product->slug}}" class="btn btn-primary">Edit</a>
 
-                <form onclick="return confirm(`Are you sure?`)" action="/admindashboard/products/delete/{{ $product->id }}" method="post">
-                    {{csrf_field()}}                 
-                    <button class="btn btn-primary" type="submit">Delete</button>
-                </form>
+                <p hidden>{{$product->id}}</p>
+                <a href="/admindashboard/products/delete" class="btn btn-primary delete-product-btn">Delete</a>
             </div>
         </div>
         @endif

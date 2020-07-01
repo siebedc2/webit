@@ -73,7 +73,7 @@ Route::prefix('/admindashboard')->middleware('admincheck')->group(function() {
         'uses' => 'ProductController@handleChange'
     ]);
 
-    Route::post('/products/delete/{id}', [
+    Route::post('/products/delete', [
         'as'   => 'deleteProduct',
         'uses' => 'ProductController@handleDelete'
     ]);

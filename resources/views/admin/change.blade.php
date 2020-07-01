@@ -38,7 +38,7 @@
                     <textarea name="description" class="w-100 bg-light form-control" id="description" rows="3" required>{{ $product->description ?? '' }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="pictures">Picture *</label>
+                    <label for="pictures">Picture</label>
                     <input name="pictures" type="file" class="form-control-file" id="pictures" value="{{ $product->pictures ?? '' }}">
                 </div>
                 <div class="form-group">

@@ -81,9 +81,13 @@ class ProductController extends Controller
         } 
     }
 
-    public function handleDelete(ProductService $product, $product_id) {
-        if($product->delete($product_id)) {
-            return redirect('/admindashboard')->with('status', 'Product deleted!');
+    public function handleDelete(ProductService $product) {
+        if($product->delete($this->_request->input('product_id'))) {
+            return response()->json([
+                'message'       => 'success',
+            ]);
+            
+            //return redirect('/admindashboard')->with('status', 'Product deleted!');
         }
     }
 }
