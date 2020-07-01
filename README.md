@@ -17,7 +17,7 @@ Je ontwikkelt een website voor een fictief veilinghuis. Het veilinghuis moet voo
 **B) Achter log-in (na log-in)**
  -	Gebruikers: overzicht alle geplaatste biedingen **VERWERKT**
 -	Gebruikers: pagina om wachtwoord aan te passen **VERWERKT**
--	Admins: beheren van alle voorwerpen (bekijken/toevoegen **(ajax)**/wijzigen/verwijderen) **VERWERKT**
+-	Admins: beheren van alle voorwerpen (bekijken/toevoegen/wijzigen/verwijderen **(ajax)**) **VERWERKT**
 -	Admins: overzicht per voorwerp welke biedingen er reeds geplaatst zijn **VERWERKT**
 
 **C) Bonus (niet verplicht)**
