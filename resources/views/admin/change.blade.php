@@ -24,7 +24,11 @@
             @endif
 
             <form method="POST" enctype="multipart/form-data">
-                {{csrf_field()}}                                
+                {{csrf_field()}}
+                <div class="form-group d-none">
+                    <label for="id">id</label>
+                    <input name="id" type="text" class="w-100 bg-light form-control" id="name" placeholder="name" value="{{ $product->id ?? '' }}">
+                </div>                                
                 <div class="form-group">
                     <label for="name">Name *</label>
                     <input name="name" type="text" class="w-100 bg-light form-control" id="name" placeholder="name" value="{{ $product->name ?? '' }}" required>
@@ -51,7 +55,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Create product</button>
+                <button type="submit" class="btn btn-primary">Create/update product</button>
             </form>
         </div>
     </div>

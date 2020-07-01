@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Validation\Rule;
 use App\Models\Product as ProductModel;
 use Validator;
 
@@ -9,7 +10,10 @@ class Product {
     public function validator(array $data) {
         return Validator::make($data, [
             'name'          => 'required',
-            'slug'          => 'required|unique:products,slug,' . $data['slug'].',slug',
+            'slug'          => [
+                'required',
+                Rule::unique('products')->ignore($data['id'])           
+                ],
             'description'   => 'required',
             'pictures'      => 'nullable|mimes:jpg,jpeg,png'
         ]);
@@ -40,8 +44,11 @@ class Product {
     }
 
     public function create($data) {
-        $filename               = $this->saveImage($data['pictures']);
-        $data['pictures']       = $filename;
+        if(!empty($data['pictures'])) {
+            $filename               = $this->saveImage($data['pictures']);
+            $data['pictures']       = $filename;
+        }
+        
         return ProductModel::create($data);
     }
 
