@@ -27,6 +27,11 @@ class Product {
         return ProductModel::where('slug', $slug)->first();
     }
 
+    public function mapData($data) {
+        $data['slug'] = str_replace(' ', '', $data['slug']);
+        return $data;
+    }
+
     public function saveImage($image) {
         $ext = $image->extension();
         $filename =  date('Y-m-d-H-i-s') . '_' . uniqid() . '.' . $ext;
@@ -35,25 +40,25 @@ class Product {
     }
 
     public function create($data) {
-        $filename = $this->saveImage($data['pictures']);
-        $data['pictures'] = $filename;
+        $filename               = $this->saveImage($data['pictures']);
+        $data['pictures']       = $filename;
         return ProductModel::create($data);
     }
 
     public function update($data, $slug) {
-        $product = ProductModel::where('slug', $slug)->first();
-        $product->name = $data['name'];
-        $product->slug = $data['slug'];
-        $product->description = $data['description'];
+        $product                = ProductModel::where('slug', $slug)->first();
+        $product->name          = $data['name'];
+        $product->slug          = $data['slug'];
+        $product->description   = $data['description'];
 
         if(!empty($data['pictures'])) {
             $filename = $this->saveImage($data['pictures']);
-            $data['pictures'] = $filename;
-            $product->pictures = $data['pictures'];
+            $data['pictures']   = $filename;
+            $product->pictures  = $data['pictures'];
         }
 
         if(!empty($data['pictures'])) {
-            $product->min_bid = $data['min_bid'];
+            $product->min_bid   = $data['min_bid'];
         }
         
         return $product->save();
@@ -62,7 +67,7 @@ class Product {
     public function delete($product_id) {
         // Soft delete
         $product = ProductModel::find($product_id);
-        $product->status = 'offline';
+        $product->status        = 'offline';
         return $product->save();
 
         // Hard delete

@@ -58,14 +58,9 @@ Route::prefix('/admindashboard')->middleware('admincheck')->group(function() {
         'uses' => 'HomeController@adminIndex'
     ]);
 
-    Route::get('/bids', [
-        'as'   => 'bids',
-        'uses' => 'ProductController@allBids'
-    ]);
-
     Route::get('/products/details/{slug}', [
         'as'   => 'detailsProduct',
-        'uses' => 'ProductController@adminDetails'
+        'uses' => 'ProductController@details'
     ]);
 
     Route::get('/products/change/{slug?}', [

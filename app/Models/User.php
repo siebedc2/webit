@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function bid() {
-        return $this->hasOne('App\Models\Bid');
+        return $this->hasMany('App\Models\Bid');
     }
 }

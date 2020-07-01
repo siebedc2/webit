@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <a href="/admindashboard/bids" class="btn btn-primary">Bids</a>
+            <h2>Products</h2>
         </div>
-        <div class="col-6">
-            <a href="/admindashboard/products/change" class="btn btn-primary">Create product</a>
+        <div class="col-6 d-flex justify-content-end">
+            <a href="/admindashboard/products/change" class="mb-2 btn btn-primary">Create</a>
         </div>
     </div>
     <div class="row">
@@ -34,12 +34,12 @@
         @if($product->status != 'offline')
         <div class="row">
             <div class="col-3 border">
-                <p>{{ $product->name }}</p>
+                <p class="py-2 mb-0">{{ $product->name }}</p>
             </div>
             <div class="col-6 border">
-                <p>{{ $product->description }}</p>
+                <p class="py-2 mb-0">{{ $product->description }}</p>
             </div>
-            <div class="col-3 border">
+            <div class="col-3 border d-flex justify-content-between py-2">
                 <a href="/admindashboard/products/details/{{$product->slug}}" class="btn btn-primary">Details</a>
 
                 <a href="/admindashboard/products/change/{{$product->slug}}" class="btn btn-primary">Edit</a>

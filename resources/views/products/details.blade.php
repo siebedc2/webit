@@ -10,7 +10,7 @@
         <div class="col-md-6">
             <div style="background-image: url(/images/uploads/{{ $product->pictures }})" class="product-image w-100"></div>
         </div>
-
+        
         <div class="col-md-6">
             <div class="row mt-3 mt-md-0">
                 <div class="col-12">
@@ -28,7 +28,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    @auth
+                    @if(Auth::user() && Auth::user()->role == "user")
                         <form method="POST">
                             {{csrf_field()}}
 
@@ -55,8 +55,20 @@
                                 <p class="font-italic">You have the highest bid</p>
                             @endif
                         </form>
-                    @endauth
+                    @endif
                 </div>
+            </div>
+            <div class="row">
+                @if(request()->route()->getPrefix() == "/admindashboard")
+                    <div class="col-12">
+                        <p><strong>Bid history</strong></p>
+                    </div>
+                    @foreach($bids as $bid)
+                        <div class="col-12">
+                            <p>{{$bid->user->name}}: &euro;{{$bid->price}}</p>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

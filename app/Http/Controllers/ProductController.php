@@ -25,22 +25,13 @@ class ProductController extends Controller
     public function details(ProductService $product, BidService $bid, $slug) {
         $data['product'] = $product->getBySlug($slug);
         $data['highest_bid'] = $bid->getHeighest($data['product']['id']);
+        $data['bids'] = $bid->getByProductId($data['product']['id']);
         return view('products.details', $data);
-    }
-
-    public function adminDetails(ProductService $product, $slug) {
-        $data['product'] = $product->getBySlug($slug);
-        return view('admin.productDetails', $data);
     }
 
     public function personalBids(BidService $bid) {
         $data['bids'] = $bid->getByUserId(Auth::id());
         return view('user.index', $data);
-    }
-
-    public function allBids(BidService $bid) {
-        $data['bids'] = $bid->getAll();
-        return view('admin.bids', $data);
     }
 
     public function handleBid(BidService $bid, UserService $user) {
@@ -69,7 +60,8 @@ class ProductController extends Controller
     }
 
     public function handleChange(ProductService $product, $slug = null) {
-        if ($product->validator($this->_request->all())->fails()) {
+        $data = $product->mapData($this->_request->all());
+        if ($product->validator($data)->fails()) {
             $errors = $product->validator($this->_request->all())->errors();
             return back()->with('errors', $errors);
         } 
