@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description');
-            $table->text('pictures')->nullable();
+            $table->text('pictures')->nullable()->default('empty.png');
             $table->double('min_bid')->nullable();
             $table->enum('status', ['online', 'offline'])->default('online');
             $table->timestamps();

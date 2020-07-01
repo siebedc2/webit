@@ -51,9 +51,9 @@
                                         <div class="input-group-text">&euro;</div>
                                     </div>
                                     @if($bids->count() == 0) 
-                                        <input type="number" min="{{ $product->min_bid }}" class="form-control" name="price" id="price" required>
+                                        <input type="number" min="{{ $product->min_bid }}" class="bg-light form-control" name="price" id="price" required>
                                     @else
-                                        <input type="number" min="{{ $highest_bid->price + 1 }}" class="form-control" name="price" id="price" required>
+                                        <input type="number" min="{{ $highest_bid->price + 1 }}" class="bg-light form-control" name="price" id="price" required>
                                     @endif
                                 </div>
                             </div>
@@ -71,11 +71,17 @@
                     <div class="col-12">
                         <p><strong>Bid history</strong></p>
                     </div>
+                    @if($bids->count() > 0)
                     @foreach($bids as $bid)
                         <div class="col-12">
                             <p>{{$bid->user->name}}: &euro;{{$bid->price}}</p>
                         </div>
                     @endforeach
+                    @else
+                    <div class="col-12">
+                        <p class="text-black-50 font-italic">No bid history</p>
+                    </div>
+                    @endif
                 @endif
             </div>
         </div>

@@ -27,7 +27,7 @@
                 {{csrf_field()}}
                 <div class="form-group d-none">
                     <label for="id">id</label>
-                    <input name="id" type="text" class="w-100 bg-light form-control" id="name" placeholder="name" value="{{ $product->id ?? '' }}">
+                    <input name="id" type="text" class="w-100 bg-light form-control" id="id" placeholder="id" value="{{ $product->id ?? '' }}">
                 </div>                                
                 <div class="form-group">
                     <label for="name">Name *</label>
