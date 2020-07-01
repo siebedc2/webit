@@ -38,7 +38,7 @@
         }
     </style>
 </head>
-<body style="margin:0; background-color:#f6f6f6; padding-top: 50px; padding-bottom: 50px">
+<body style="margin:0; background-color:#f6f6f6; padding-top: 50px; padding-bottom: 50px; width=600px">
 <table align="center" style="background-color:#fff; border-spacing: 0;">
     <!--<tr style="background-image: url({{asset('images/index.jpg')}}); background-size: cover; background-position: center; background-repeat: no-repeat; color: #fff; padding: 20px">
         <th width="600px" cellpadding="20" cellspacing="20" style="padding-top: 50px; text-align: center; padding-bottom: 50px;">
@@ -48,6 +48,9 @@
 
     <tr>
         <td style="padding-left: 25px; padding-right: 25px; padding-top: 40px"><h1><strong>Bid placed!</h1></td>
+    </tr>
+    <tr>
+        <td style="padding-left: 25px; padding-right: 25px; padding-top: 40px"><p>Uw bod is geplaatst.</p></td>
     </tr>
 
 </table >
